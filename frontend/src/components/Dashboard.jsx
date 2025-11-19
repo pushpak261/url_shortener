@@ -42,7 +42,7 @@ export default function Dashboard() {
           {links.map((l) => (
             <tr key={l.code}>
               <td data-label="Short Code">
-                <a href={`http://localhost:5000/${l.code}`} target="_blank">
+                <a href={`https://url-shortener-m5hv.onrender.com/${l.code}`} target="_blank">
                   {l.code}
                 </a>
               </td>
