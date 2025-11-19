@@ -88,7 +88,17 @@ const PORT = process.env.PORT || 5000;
 
 const cache = new Map();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://url-shortener-peach-rho.vercel.app"
+    ],
+    methods: ["GET", "POST", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
