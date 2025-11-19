@@ -1,22 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
   background: #f4f4f4;
   color: #333;
-  margin: 0;
-  padding: 0;
 }
 
 #root {
   padding: 1rem;
-  text-align: center;
+  max-width: 1280px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 a {
   text-decoration: none;
   color: #3498db;
+  word-break: break-word;
 }
 
 button {
@@ -67,17 +73,6 @@ button.danger:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .header {
   display: flex;
   flex-direction: column;
@@ -85,6 +80,8 @@ button.danger:hover {
   padding: 1em;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header .logo {
@@ -92,13 +89,38 @@ button.danger:hover {
   margin-bottom: 0.5em;
 }
 
-.header nav a {
-  margin: 0.5em 0;
-  font-weight: bold;
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  font-size: 2rem;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+
+.menu-toggle:checked + .hamburger + .nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  padding: 0.5em 0;
+  width: 100%;
+  text-align: center;
+  word-break: break-word;
 }
 
 .dashboard {
   padding: 1em 0;
+  overflow-x: hidden;
 }
 
 .top-bar {
@@ -118,7 +140,9 @@ button.danger:hover {
 
 .link-table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .link-table th,
@@ -126,6 +150,7 @@ button.danger:hover {
   border: 1px solid #ddd;
   padding: 0.5em;
   text-align: left;
+  word-wrap: break-word;
 }
 
 .link-table th {
@@ -144,7 +169,7 @@ button.danger:hover {
 }
 
 .link-table a {
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .link-table tr {
@@ -161,6 +186,7 @@ button.danger:hover {
   left: 0;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   background: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
@@ -174,7 +200,8 @@ button.danger:hover {
   padding: 1.5em;
   border-radius: 8px;
   width: 100%;
-  max-width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
 .modal h3 {
@@ -192,6 +219,8 @@ button.danger:hover {
   font-size: 1em;
   border: 1px solid #ddd;
   border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 button.secondary {
@@ -206,6 +235,7 @@ button.secondary:hover {
   padding: 1em;
   max-width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .stats-card {
@@ -214,6 +244,7 @@ button.secondary:hover {
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
   margin-top: 1em;
+  word-wrap: break-word;
 }
 
 .stats-card p {
@@ -228,6 +259,23 @@ button.secondary:hover {
 
   .header nav a {
     margin: 0 0 0 1em;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .nav-links a {
+    padding: 0;
+    margin-left: 1em;
+    text-align: left;
   }
 
   .top-bar {
