@@ -1,8 +1,13 @@
-/* Base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
 }
 
 body {
@@ -10,17 +15,21 @@ body {
   background: #f5f7fa;
   color: #2c3e50;
   line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
 }
 
-/* Header */
 .header {
   background: #3498db;
   color: white;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
 }
 
 .logo {
@@ -39,11 +48,11 @@ body {
   opacity: 0.8;
 }
 
-/* Dashboard */
 .dashboard {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 1rem;
+  width: 100%;
 }
 
 .top-bar {
@@ -58,6 +67,7 @@ body {
 .top-bar h2 {
   color: #2c3e50;
   font-size: 1.8rem;
+  word-break: break-word;
 }
 
 button {
@@ -70,6 +80,7 @@ button {
   font-size: 1rem;
   font-weight: 500;
   transition: background 0.2s;
+  touch-action: manipulation;
 }
 
 button:hover {
@@ -92,20 +103,20 @@ button.danger:hover {
   background: #c0392b;
 }
 
-/* Table Container */
 .table-container {
   overflow-x: auto;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  display: block;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Desktop Table */
 .link-table {
   width: 100%;
   border-collapse: collapse;
   background: white;
+  min-width: 600px;
 }
 
 .link-table thead {
@@ -137,6 +148,7 @@ button.danger:hover {
   color: #3498db;
   text-decoration: none;
   font-weight: 500;
+  touch-action: manipulation;
 }
 
 .link-table a:hover {
@@ -167,6 +179,7 @@ button.danger:hover {
   border: none;
   cursor: pointer;
   transition: background 0.2s;
+  touch-action: manipulation;
 }
 
 .btn-small:hover {
@@ -181,7 +194,6 @@ button.danger:hover {
   background: #c0392b;
 }
 
-/* Mobile Cards - Hidden by default */
 .mobile-links {
   display: none;
 }
@@ -192,6 +204,7 @@ button.danger:hover {
   margin-bottom: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
 }
 
 .link-card-header {
@@ -199,6 +212,7 @@ button.danger:hover {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.75rem;
+  gap: 0.5rem;
 }
 
 .link-code {
@@ -206,6 +220,8 @@ button.danger:hover {
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
+  touch-action: manipulation;
+  word-break: break-all;
 }
 
 .link-clicks {
@@ -214,6 +230,7 @@ button.danger:hover {
   border-radius: 12px;
   font-size: 0.875rem;
   color: #555;
+  white-space: nowrap;
 }
 
 .link-url {
@@ -226,9 +243,9 @@ button.danger:hover {
 .link-card-actions {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-/* Modal */
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -241,6 +258,7 @@ button.danger:hover {
   justify-content: center;
   z-index: 1000;
   padding: 1rem;
+  overflow-y: auto;
 }
 
 .modal {
@@ -250,6 +268,7 @@ button.danger:hover {
   width: 100%;
   max-width: 500px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  margin: auto;
 }
 
 .modal h3 {
@@ -267,6 +286,7 @@ button.danger:hover {
   margin-bottom: 0.5rem;
   color: #34495e;
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .modal input {
@@ -274,7 +294,9 @@ button.danger:hover {
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 16px;
+  width: 100%;
+  touch-action: manipulation;
 }
 
 .modal input:focus {
@@ -292,11 +314,11 @@ button.danger:hover {
   flex: 1;
 }
 
-/* Stats Page */
 .stats-page {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
+  width: 100%;
 }
 
 .stats-page h2 {
@@ -312,29 +334,24 @@ button.danger:hover {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin-bottom: 2rem;
+  width: 100%;
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
+.stats-card p {
   padding: 1rem 0;
   border-bottom: 1px solid #ecf0f1;
+  word-break: break-word;
 }
 
-.stat-item:last-child {
+.stats-card p:last-child {
   border-bottom: none;
 }
 
-.stat-item strong {
+.stats-card strong {
   color: #34495e;
+  display: block;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
-}
-
-.stat-value {
-  color: #2c3e50;
-  font-size: 1.1rem;
-  word-break: break-word;
 }
 
 .btn {
@@ -346,6 +363,7 @@ button.danger:hover {
   border-radius: 6px;
   font-weight: 500;
   transition: background 0.2s;
+  touch-action: manipulation;
 }
 
 .btn:hover {
@@ -359,121 +377,110 @@ button.danger:hover {
   font-size: 1.1rem;
 }
 
-/* Responsive Styles */
+@media (max-width: 1024px) {
+  .dashboard {
+    padding: 0 1.5rem;
+  }
+  .url-cell {
+    max-width: 250px;
+  }
+}
+
 @media (max-width: 768px) {
-  /* Header */
   .header {
     padding: 1rem;
   }
-  
   .logo {
     font-size: 1.25rem;
   }
-  
-  /* Dashboard */
   .dashboard {
     margin: 1rem auto;
+    padding: 0 1rem;
   }
-  
   .top-bar {
     flex-direction: column;
     align-items: stretch;
   }
-  
   .top-bar h2 {
     font-size: 1.5rem;
   }
-  
   .top-bar button {
     width: 100%;
   }
-  
-  /* Hide table on mobile */
   .table-container {
     display: none;
   }
-  
-  /* Show mobile cards */
   .mobile-links {
     display: block;
   }
-  
-  /* Hide last clicked column on mobile table */
-  .hide-mobile {
-    display: none;
-  }
-  
-  /* Modal */
   .modal {
     padding: 1.5rem;
+    max-width: calc(100% - 2rem);
   }
-  
   .modal h3 {
     font-size: 1.25rem;
   }
-  
   .modal-actions {
     flex-direction: column;
   }
-  
-  /* Stats Page */
+  .modal-actions button {
+    width: 100%;
+  }
   .stats-page h2 {
     font-size: 1.5rem;
   }
-  
   .stats-card {
     padding: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  /* Further adjustments for small phones */
   .header {
     padding: 0.75rem;
   }
-  
   .logo {
     font-size: 1.1rem;
   }
-  
   .top-bar h2 {
     font-size: 1.3rem;
   }
-  
   button {
     padding: 0.625rem 1rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
-  
   .link-card {
     padding: 1rem;
   }
-  
   .link-card-actions {
     flex-direction: column;
   }
-  
   .link-card-actions .btn-small {
     width: 100%;
     text-align: center;
   }
-  
   .stats-card {
     padding: 1rem;
   }
-  
   .modal {
     padding: 1rem;
   }
 }
 
-/* Tablet optimization */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .dashboard {
-    padding: 0 2rem;
+@media (max-width: 360px) {
+  .logo {
+    font-size: 1rem;
   }
-  
-  .url-cell {
-    max-width: 250px;
+  .top-bar h2 {
+    font-size: 1.2rem;
+  }
+  button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .modal {
+    padding: 0.75rem;
+  }
+  .link-card {
+    padding: 0.75rem;
   }
 }
