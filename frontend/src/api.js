@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = import.meta.env.BASE_URL;
 
 export async function getAllLinks() {
   const res = await fetch(`${BASE_URL}/api/links`);
