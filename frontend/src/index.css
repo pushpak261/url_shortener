@@ -1,0 +1,88 @@
+/* Layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: #111;
+  color: #fff;
+}
+
+.logo {
+  margin: 0;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Table */
+.link-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.link-table th,
+.link-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.btn-small {
+  padding: 5px 10px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.btn-small.danger {
+  background: #dc3545;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  width: 320px;
+  border-radius: 6px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Stats */
+.stats-card {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
