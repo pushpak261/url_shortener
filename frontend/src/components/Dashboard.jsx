@@ -38,19 +38,20 @@ export default function Dashboard() {
             <th>Actions</th>
           </tr>
         </thead>
-
         <tbody>
           {links.map((l) => (
             <tr key={l.code}>
-              <td>
+              <td data-label="Short Code">
                 <a href={`http://localhost:5000/${l.code}`} target="_blank">
                   {l.code}
                 </a>
               </td>
-              <td>{l.url}</td>
-              <td>{l.clicks}</td>
-              <td>{l.lastClicked ? new Date(l.lastClicked).toLocaleString() : "—"}</td>
-              <td>
+              <td data-label="Original URL">{l.url}</td>
+              <td data-label="Clicks">{l.clicks}</td>
+              <td data-label="Last Clicked">
+                {l.lastClicked ? new Date(l.lastClicked).toLocaleString() : "—"}
+              </td>
+              <td data-label="Actions">
                 <a href={`/stats/${l.code}`} className="btn-small">Stats</a>
                 <button className="btn-small danger" onClick={() => handleDelete(l.code)}>
                   Delete

@@ -15,7 +15,6 @@ export default function StatsPage() {
       }
       setLink(res.link);
     }
-
     loadStats();
   }, [code]);
 
